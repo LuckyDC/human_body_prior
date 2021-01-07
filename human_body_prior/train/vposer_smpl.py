@@ -34,11 +34,10 @@ from datetime import datetime
 import numpy as np
 
 import torch
+import kornia
 from torch import nn, optim
 from torch.nn import functional as F
 from torch.utils.data import DataLoader
-
-import torchgeometry as tgm
 
 from configer import Configer
 
@@ -157,7 +156,7 @@ class VPoser(nn.Module):
         '''
         batch_size = pose_matrot.size(0)
         homogen_matrot = F.pad(pose_matrot.view(-1, 3, 3), [0,1])
-        pose = tgm.rotation_matrix_to_angle_axis(homogen_matrot).view(batch_size, 1, -1, 3).contiguous()
+        pose = kornia.rotation_matrix_to_angle_axis(homogen_matrot).view(batch_size, 1, -1, 3).contiguous()
         return pose
 
     @staticmethod
@@ -167,7 +166,7 @@ class VPoser(nn.Module):
         :return: pose_matrot: Nx1xnum_jointsx9
         '''
         batch_size = pose.size(0)
-        pose_body_matrot = tgm.angle_axis_to_rotation_matrix(pose.reshape(-1, 3))[:, :3, :3].contiguous().view(batch_size, 1, -1, 9)
+        pose_body_matrot = kornia.angle_axis_to_rotation_matrix(pose.reshape(-1, 3))[:, :3, :3].contiguous().view(batch_size, 1, -1, 9)
         return pose_body_matrot
 
 
