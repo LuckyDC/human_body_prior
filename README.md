@@ -30,14 +30,12 @@ Our variational human pose prior, named VPoser, has the following features:
 **Requirements**
 - Python 3.7
 - [Configer](https://github.com/nghorbani/configer)
-- [PyTorch 1.1.0](https://pytorch.org/get-started/previous-versions/)
-- [Torchgeometry 0.1.2](https://pypi.org/project/torchgeometry/0.1.2/)
 - [Pyrender](https://pyrender.readthedocs.io/en/latest/install/index.html#osmesa) for visualizations
 
 Install from this repository for the latest developments:
 ```bash
 pip install git+https://github.com/nghorbani/configer
-pip install git+https://github.com/nghorbani/human_body_prior
+pip install git+https://github.com/LuckyDC/human_body_prior
 ```
 
 **Optional dependencies:**
