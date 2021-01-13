@@ -37,7 +37,7 @@ setup(name='human_body_prior',
       long_description=open("README.md").read(),
       long_description_content_type="text/markdown",
       install_requires=['tensorboardX>=1.6','configer>=1.4', 'imageio>=2.5.0', 'transforms3d>=0.3.1', 'trimesh',
-                        'smplx', 'pyrender', 'moviepy'],
+                        'smplx', 'kornia', 'pyrender', 'moviepy'],
       dependency_links=[
           "https://github.com/nghorbani/configer/tarball/1.4.1#egg=configer-1.4.1"
       ],
